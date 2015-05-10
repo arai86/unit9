@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Felipe
+ * @author Felipe Otero
  */
 public class CadenasAlumnoTest {
     private CadenasAlumno ca;
