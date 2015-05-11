@@ -31,6 +31,11 @@ public class CadenasAlumnoTest {
         boolean actual=ca.sonIguales(cadena1, cadena2);
         boolean expected=cadena1.equals(cadena2);
         assertEquals(expected, actual);
+        
+        cadena1="Alba";
+        cadena2="Robe";
+        actual=ca.sonIguales(cadena1, cadena2);
+        assertEquals(false, actual);
     }
 
     /**
@@ -44,6 +49,21 @@ public class CadenasAlumnoTest {
         boolean actual=ca.esMayor(cadena1, cadena2);
         boolean expected=false;
         int number =cadena1.compareTo(cadena2);//el compareto da un numero, si es mayor que cero es que cadena1 es mayor que cadena 2;
+        if(number>0)
+        {
+            expected=true;
+        }
+        else
+        {
+            expected=false;
+        }
+        assertEquals(expected, actual);
+        
+        cadena1="C";
+        cadena2="A";
+        actual=ca.esMayor(cadena1, cadena2);
+        expected=false;
+        number =cadena1.compareTo(cadena2);//el compareto da un numero, si es mayor que cero es que cadena1 es mayor que cadena 2;
         if(number>0)
         {
             expected=true;
@@ -75,6 +95,34 @@ public class CadenasAlumnoTest {
             expected=false;
         }
         assertEquals(expected, actual);
+        
+        cadena1="C";
+        cadena2="A";
+        actual=ca.esMenor(cadena1, cadena2);
+        number =cadena1.compareTo(cadena2);//el compareto da un numero, si es mayor que cero es que cadena1 es mayor que cadena 2;
+        if(number<0)
+        {
+            expected=true;
+        }
+        else
+        {
+            expected=false;
+        }
+        assertEquals(expected, actual);
+        
+        cadena1="A";
+        cadena2="A";
+        actual=ca.esMenor(cadena1, cadena2);
+        number =cadena1.compareTo(cadena2);//el compareto da un numero, si es mayor que cero es que cadena1 es mayor que cadena 2;
+        if(number<0)
+        {
+            expected=true;
+        }
+        else
+        {
+            expected=false;
+        }
+        assertEquals(expected, actual);
     }
 
     /**
@@ -88,6 +136,11 @@ public class CadenasAlumnoTest {
         boolean actual=ca.comparaIgnorandoMayusculas(cadena1, cadena2);
         boolean expected=cadena1.equalsIgnoreCase(cadena2);
         assertEquals(expected, actual);
+        
+        cadena1="mo";
+        cadena2="ma";
+        actual=ca.comparaIgnorandoMayusculas(cadena1, cadena2);
+        assertEquals(false, actual);
     }
 
     /**
@@ -136,9 +189,14 @@ public class CadenasAlumnoTest {
     @Test
     public void testConvertirMayusculas() 
     {
-        String cadena1="a";
+        String cadena1="alba";
         String actual=ca.convertirMayusculas(cadena1);
         String expected=cadena1.toUpperCase();
+        assertEquals(expected, actual);
+        
+        cadena1="ñam";
+        actual=ca.convertirMayusculas(cadena1);
+        expected=cadena1.toUpperCase();
         assertEquals(expected, actual);
     }
 
@@ -148,9 +206,14 @@ public class CadenasAlumnoTest {
     @Test
     public void testConvertirMinusculas() 
     {
-        String cadena1="a";
+        String cadena1="Alba";
         String actual=ca.convertirMinusculas(cadena1);
         String expected=cadena1.toLowerCase();
+        assertEquals(expected, actual);
+        
+        cadena1="Ñam";
+        actual=ca.convertirMinusculas(cadena1);
+        expected=cadena1.toLowerCase();
         assertEquals(expected, actual);
     }
 
