@@ -147,61 +147,6 @@ public class CadenasAlumno {
         return reemplazada;
     }
     /**
-     * Método que nos permite nos permite dividir una cadena en base a las 
-     * ocurrencias de una expresión regular definida dentro. 
-     * @param cadena: a buscar la expresión regular
-     * @param regla: expresión a buscar
-     * @param limite: tope máximo de subcadenas a mostrar
-     */
-    public void muestraSplitLimite(String cadena, String regla, int limite){
-        int posiciones [] = new int [cadena.length() - regla.length()];
-        char [] cad = cadena.toCharArray();
-        int j = 0;
-        
-        posiciones = apareceEn(cadena, regla);
-        for(int i = 0; limite > 0 && i < posiciones.length && posiciones[i] != -1 ; i++){
-            limite--;
-            for(; j < posiciones[i] || (j < cad.length && limite == 0); j++){
-                out.print(cad[j]);
-            }            
-            j = posiciones[i] + regla.length();
-            out.println();
-        }
-        if(limite > 0){
-            for(; j < cad.length; j++){
-                out.print(cad[j]);
-            }
-            out.println("");
-        }
-            
-    }
-    /**
-     * Método que nos permite nos permite dividir una cadena en base a las 
-     * ocurrencias de una expresión regular definida dentro. 
-     * @param cadena: a buscar la expresión regular
-     * @param: regla: expresión a buscar
-     */    
-    public void muestraSplit(String cadena, String regla){
-        int posiciones [] = new int [cadena.length() - regla.length()];
-        char [] cad = cadena.toCharArray();
-        int j = 0;
-        
-        posiciones = apareceEn(cadena, regla);
-        for(int i = 0; i < posiciones.length && posiciones[i] != -1; i++){
-            for(; j < posiciones[i]; j++){
-                out.print(cad[j]);
-            }
-            j = posiciones[i] + regla.length();
-            out.println("");
-        }
-        if(j != cad.length){
-            for(; j < cad.length; j++){
-                out.print(cad[j]);
-            }
-            out.println("");
-        }
-    }
-    /**
      * Método que elimina los espacios que se encuentran en una cadena
      * @param cadena:cadena a eliminar sus espacios
      * @return: cadena sin espacios
@@ -398,23 +343,6 @@ public class CadenasAlumno {
         return subString;
     }
     /**
-     * Método que extrae una cadena desde una determinada posición 
-     * hasta la posición final marcada.
-     * @param cadena: cadena a substraer
-     * @param posicionInicio posicion inicial desde donde se substraerá
-     * @param posicionFinal posición final hasta donde se substraerá
-     * @return cadena substraida
-     */    
-    public String extraerSubstring(String cadena, int posicionInicio, int posicionFinal){
-        String subString = "";
-        char [] cad = cadena.toCharArray();
-        
-        for(int i = posicionInicio; i <= posicionFinal && i < cad.length; i++){
-            subString += cad[i];
-        }
-        return subString;
-    }
-    /**
      * Método que devuevle dos cadenas unidas
      * @param cadena1: primera cadena a unir
      * @param cadena2 segunda cadena a unir
@@ -433,40 +361,6 @@ public class CadenasAlumno {
             total += cad2[i];
         }
         return total;
-    }  
-    /**
-     * Método que comprueba si son letras todo lo que contiene cadena
-     * Este método convierte el String a cadena de caracteres e 
-     * irá recorriendo carácter a carácter del vector comprobándolo
-     * @param cadena: String a comprobar si contiene sólo letras
-     * @return true si son solo letras, false si hay otro carácter que no sea una letra
-     */    
-    public boolean sonLetras(String cadena){
-        char []texto = cadena.toCharArray();
-        boolean esTexto = true;
-        for(int i = 0; i < texto.length && esTexto; i++){
-            if(!((texto[i] >= 'a' && texto[i] <= 'z') || 
-                    (texto[i] >= 'A' && texto[i] <= 'Z'))){
-                esTexto = false;
-            }                
-        }
-        return esTexto;
-    }
-    /**
-     * Método que comprueba si son letras todo lo que contiene cadena
-     * Este método irá recorriendo carácter a carácter del string comprobándolo
-     * @param cadena: String a comprobar si contiene sólo letras
-     * @return true si son solo letras, false si hay otro carácter que no sea una letra
-     */
-    public boolean sonLetras2(String cadena){
-        boolean esTexto = true;
-        for(int i = 0; i < cadena.length(); i++){
-            if(!((cadena.charAt(i) >= 'a' && cadena.charAt(i) <= 'z') || 
-                    (cadena.charAt(i) >= 'A' && cadena.charAt(i) <= 'Z'))){
-                esTexto = false;
-            }               
-        }
-        return esTexto;
     }
     public void main(String[] args) {
 //        out.println(sonLetras2("Rosa"));
